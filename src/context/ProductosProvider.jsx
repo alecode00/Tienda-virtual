@@ -3,14 +3,14 @@ import { ProductosContext } from "./ProductosContext";
 import { useEffect, useState } from "react";
 
 
-//const urlBase = "https://fakestoreapi.com/products";
+const urlBase = "https://fakestoreapi.com/products";
 
 export const ProductosProvider = ({children}) => {
     ProductosProvider.propTypes ={
         children: PropTypes.element,
     }
 
-    /* const [fetchData, setFetchData] = useState([]);
+     const [fetchData, setFetchData] = useState([]);
 
     const fetchDataAsync = async () => {
       try {
@@ -35,12 +35,11 @@ export const ProductosProvider = ({children}) => {
       }
     }; */
   
-   /* useEffect(() => {
+   useEffect(() => {
       fetchDataAsync();
-    }, []); */
-const data = {fetchhh,setfetvhttht}
+    }, []);
   return (
-      <ProductosContext.Provider value={data} >
+      <ProductosContext.Provider value={fetchData} >
         {children}
       </ProductosContext.Provider>
   )
