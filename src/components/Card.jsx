@@ -2,6 +2,8 @@ import { PropTypes } from "prop-types";
 import "../styles/card.css";
 import { useState } from "react";
 
+const initialStateAdded = false;
+
 export const Card = ({ imagen, titulo, description, precio }) => {
   Card.propTypes = {
     imagen: PropTypes.string.isRequired,
@@ -9,7 +11,12 @@ export const Card = ({ imagen, titulo, description, precio }) => {
     description: PropTypes.string.isRequired,
     precio: PropTypes.number.isRequired,
   };
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(initialStateAdded);
+
+  const handleSetAdded = () => {
+    setAdded(!added);
+  };
+
   return (
     <>
       <div className="tarjeta">
@@ -19,11 +26,19 @@ export const Card = ({ imagen, titulo, description, precio }) => {
           <p className="tarjeta-description">{description}</p>
           <p className="tarjeta-precio">{precio} </p>
           {added ? (
-            <button type="button" className="boton-quitar">
+            <button
+              type="button"
+              className="boton-quitar"
+              onClick={handleSetAdded}
+            >
               Quitar Articulo
             </button>
           ) : (
-            <button type="button" className="boton-agregar">
+            <button
+              type="button"
+              className="boton-agregar"
+              onClick={handleSetAdded}
+            >
               Agregar Articulo
             </button>
           )}
