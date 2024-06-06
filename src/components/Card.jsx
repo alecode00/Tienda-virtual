@@ -4,7 +4,14 @@ import { useState } from "react";
 
 const initialStateAdded = false;
 
-export const Card = ({ imagen, titulo, description, precio, handleAgregar, handleQuitar}) => {
+export const Card = ({
+  imagen,
+  titulo,
+  description,
+  precio,
+  handleAgregar,
+  handleQuitar,
+}) => {
   Card.propTypes = {
     imagen: PropTypes.string.isRequired,
     titulo: PropTypes.string.isRequired,
@@ -12,16 +19,15 @@ export const Card = ({ imagen, titulo, description, precio, handleAgregar, handl
     precio: PropTypes.number.isRequired,
     handleAgregar: PropTypes.func.isRequired,
     handleQuitar: PropTypes.func.isRequired,
-
   };
   const [added, setAdded] = useState(initialStateAdded);
 
   const handleFalseAdded = () => {
-    handleQuitar()
+    handleQuitar();
     setAdded(false);
   };
   const handleTrueAdded = () => {
-    handleAgregar()
+    handleAgregar();
     setAdded(true);
   };
 

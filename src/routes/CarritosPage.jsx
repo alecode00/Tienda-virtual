@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 
 let mensaje = "Su compra ha sido realizada";
-const mensajeError = 'No se realizó la compra. Ingrese productos en el carrito'
+const mensajeError = "No se realizó la compra. Ingrese productos en el carrito";
 export const CarritosPage = () => {
   const {
     listaCompras,
@@ -22,7 +22,9 @@ export const CarritosPage = () => {
     vaciarCarrito();
     if (listaCompras.length > 0) {
       alert(mensaje);
-    }else{alert(mensajeError)}
+    } else {
+      alert(mensajeError);
+    }
   };
 
   return (

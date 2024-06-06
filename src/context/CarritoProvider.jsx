@@ -86,7 +86,7 @@ export const CarritoProvider = ({ children }) => {
           aumentarCantidadProducto,
           disminuirCantidadProducto,
           eliminarCompra,
-          vaciarCarrito
+          vaciarCarrito,
         }}
       >
         {children}
