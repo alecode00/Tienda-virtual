@@ -4,17 +4,25 @@ import { useState } from "react";
 
 const initialStateAdded = false;
 
-export const Card = ({ imagen, titulo, description, precio }) => {
+export const Card = ({ imagen, titulo, description, precio, handleAgregar, handleQuitar}) => {
   Card.propTypes = {
     imagen: PropTypes.string.isRequired,
     titulo: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     precio: PropTypes.number.isRequired,
+    handleAgregar: PropTypes.func.isRequired,
+    handleQuitar: PropTypes.func.isRequired,
+
   };
   const [added, setAdded] = useState(initialStateAdded);
 
-  const handleSetAdded = () => {
-    setAdded(!added);
+  const handleFalseAdded = () => {
+    handleQuitar()
+    setAdded(false);
+  };
+  const handleTrueAdded = () => {
+    handleAgregar()
+    setAdded(true);
   };
 
   return (
@@ -29,7 +37,7 @@ export const Card = ({ imagen, titulo, description, precio }) => {
             <button
               type="button"
               className="boton-quitar"
-              onClick={handleSetAdded}
+              onClick={handleFalseAdded}
             >
               Quitar Articulo
             </button>
@@ -37,7 +45,7 @@ export const Card = ({ imagen, titulo, description, precio }) => {
             <button
               type="button"
               className="boton-agregar"
-              onClick={handleSetAdded}
+              onClick={handleTrueAdded}
             >
               Agregar Articulo
             </button>
