@@ -12,6 +12,7 @@ export const CarritosPage = () => {
     vaciarCarrito,
   } = useContext(CarritoContext);
 
+  
   const calcularTotal = () => {
     return listaCompras
       .reduce((total, item) => total + item.price * item.cantidad, 0)
